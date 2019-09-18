@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>Hello {{ $user->id }}</h1>
+<h1>Hello {{ $user->first()->name }}</h1>
 
 <div class="flex-center position-ref full-height">
     @if (Route::has('login'))
