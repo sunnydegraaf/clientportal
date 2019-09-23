@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('image_id')->nullable();
             $table->unsignedInteger('category_id')->nullable();
 
-            
+
 
             $table->foreign('image_id', 'image_id')->references('id')->on('images')->onDelete('NO ACTION
 ')->onUpdate('NO ACTION');
@@ -34,7 +34,7 @@ class CreateProductsTable extends Migration
 
         });
 
-        
+
 
     }
 
