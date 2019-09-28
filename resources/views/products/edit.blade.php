@@ -4,8 +4,9 @@
     <h1 class="title">Edit project</h1>
 
     <form method="post" action="/products/{{ $product->id }}">
-        {{ method_field('PATCH') }}
-        {{ csrf_field() }}
+        @method('PATCH')
+        @csrf
+
         <div class="field">
             <label for="title" class="label">Title</label>
 
@@ -34,6 +35,5 @@
                 <button type="submit" class="button is-link">Submit</button>
             </div>
         </div>
-
     </form>
 @endsection

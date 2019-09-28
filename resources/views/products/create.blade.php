@@ -1,35 +1,48 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create</title>
-</head>
-<body>
-<h1>Create a new project</h1>
+@extends('/layouts/layout')
 
-<form method="post" action="/products">
+@section('content')
+    <h1 class="title">Edit project</h1>
 
-    {{ csrf_field() }}
+    <form method="post" action="/products" enctype="multipart/form-data">
+        @csrf
 
-    <div>
-        <input type="text" name="title" placeholder="Product title">
-    </div>
+        <div class="field">
+            <label for="title" class="label">Title</label>
 
-    <div>
-        <input type="number" name="price" placeholder="Product price">
-    </div>
+            <div class="control">
+                <input type="text" class="input" name="title" placeholder="Title" value="{{ old('title') }}">
+            </div>
+        </div>
 
-    <div>
-        <textarea name="description" placeholder="Product description"></textarea>
-    </div>
+        <div class="field">
+            <label for="price" class="label">Price</label>
 
-    <div>
-        <button type="submit">Create product</button>
-    </div>
-</form>
+            <div class="control">
+                <input type="number" class="input" name="price" placeholder="Price" value="{{ old('price') }}">
+            </div>
+        </div>
 
-</body>
-</html>
+        <div class="field">
+            <label for="description" class="label">Description</label>
+            <div class="control">
+                <textarea name="description" class="textarea" placeholder="Description" >{{ old('description') }}</textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Submit</button>
+            </div>
+        </div>
+
+        @if ($errors->any())
+            <div class="notification is-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </form>
+@endsection

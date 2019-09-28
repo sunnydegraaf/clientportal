@@ -25,14 +25,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('products', 'ProductController');
 
-/*Route::get('/products', 'ProductController@index');
-Route::get('/products/create', 'ProductController@create');
-Route::get('/products/{product}', 'ProductController@show');
-Route::post('/products', 'ProductController@store');
-Route::get('/products/{product}/edit', 'ProductController@edit');
-Route::patch('/products/{product}/update', 'ProductController@update');
-Route::delete('/products/{product}/delete', 'ProductController@delete');*/
-
 Route::get('/images', 'ImageController@index');
-
 
