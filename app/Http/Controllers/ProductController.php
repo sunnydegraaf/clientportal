@@ -47,7 +47,7 @@ class ProductController extends Controller
     public function update(Product $product)
     {
 
-        $product->update(request(['tile', 'price', 'description']));
+        $product->update(request(['title', 'price', 'description']));
 
         return redirect('/products');
     }
