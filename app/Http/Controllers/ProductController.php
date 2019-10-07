@@ -20,18 +20,20 @@ class ProductController extends Controller
         return view('products.create', compact('products'));
     }
 
-    public function store(Request $request)
+    public function store()
     {
-
         $attributes = request()->validate([
         'title' => 'required',
         'price' => 'required',
-        'description' => 'required'
+        'description' => 'required',
+
     ]);
 
-        Product::create($attributes);
+        Product::create($attributes);//->id
 
         return redirect('/products');
+        //$id = Product::create($attributes)->id;
+
     }
 
     public function show(Product $product)

@@ -20,19 +20,33 @@
             <p>{{ $product->description }}</p>
         </div>
     </div>
-    @if ($product->colors->count())
-        <div class="control">
-            <label class="label">Color</label>
+
+    @if ($product->colors->count() || $product->images->count() || $product->categories->count())
+        <div class="field">
+            <div class="control">
+                <label class="label">Color</label>
                 @foreach ($product->colors as $color)
-                    <p>{{ $color->color }}</p>
+                    <p>{{ $color->name }}</p>
                 @endforeach
+            </div>
         </div>
 
-        <div class="control">
-            <label class="label">Image</label>
-            @foreach ($product->images as $image)
-                <img src="{{ $image->src }}" alt="{{ $image->alt }}">
-            @endforeach
+        <div class="field">
+            <div class="control">
+                <label class="label">Category</label>
+                @foreach ($product->categories as $category)
+                    <p>{{ $category->name }}</p>
+                @endforeach
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <label class="label">Image</label>
+                @foreach ($product->images as $image)
+                    <img src="{{ $image->src }}" alt="{{ $image->alt }}">
+                @endforeach
+            </div>
         </div>
     @endif
 @endsection

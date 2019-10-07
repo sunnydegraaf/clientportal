@@ -1,7 +1,7 @@
 @extends('/layouts/layout')
 
 @section('content')
-    <h1 class="title">Edit project</h1>
+    <h1 class="title">Create project</h1>
 
     <form method="post" action="/products" enctype="multipart/form-data">
         @csrf
@@ -26,6 +26,24 @@
             <label for="description" class="label">Description</label>
             <div class="control">
                 <textarea name="description" class="textarea" placeholder="Description" >{{ old('description') }}</textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="description" class="label">Color</label>
+            <div class="control">
+                <select name="color" class="text">
+                    @foreach($colors->colors as $color)
+                    <option>{{ $color->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="description" class="label">Image</label>
+            <div class="control">
+                <input type="file" name="image">
             </div>
         </div>
 
