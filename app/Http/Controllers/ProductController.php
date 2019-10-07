@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Color;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Project;
 use App\Product;
@@ -17,7 +18,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create', compact('products'));
+        $colors = Color::all();
+        return view('products.create', compact('products','colors'));
     }
 
     public function store()

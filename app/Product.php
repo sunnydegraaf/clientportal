@@ -12,7 +12,7 @@ class Product extends Model
 
     public function colors()
     {
-        return $this->hasMany(Color::class);
+        return $this->belongsTo(Color::class);
 
     }
 

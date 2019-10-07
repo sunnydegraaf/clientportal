@@ -33,7 +33,7 @@
             <label for="description" class="label">Color</label>
             <div class="control">
                 <select name="color" class="text">
-                    @foreach($colors->colors as $color)
+                    @foreach($colors as $color)
                     <option>{{ $color->name }}</option>
                     @endforeach
                 </select>
