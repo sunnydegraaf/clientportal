@@ -20,9 +20,17 @@ class ColorController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $attributes = request()->validate([
+            'name' => 'required'
+        ]);
+
+        Color::create($attributes);//->id
+
+        return redirect('/colors');
+        //$id = Product::create($attributes)->id;
+
     }
 
     public function show($id)
@@ -30,18 +38,24 @@ class ColorController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit(Color $color)
     {
-        //
+        return view('colors.edit', compact('color'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Color $color)
     {
-        //
+
+        $color->update(request(['name']));
+
+        return redirect('/colors');
+
     }
 
-    public function destroy($id)
+    public function destroy(Color $color)
     {
-        //
+        $color->delete();
+
+        return redirect('/colors');
     }
 }
