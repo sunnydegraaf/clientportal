@@ -6,9 +6,9 @@
     @foreach ($products as $product)
         <div class="box">
             <a href="/products/{{ $product->id }}">
-                @foreach ($product->images as $image)
-                    <img src="{{ $image->src }}" alt="{{ $image->alt }}">
-                @endforeach
+{{--
+                <img src="{{ $product->image->src }}" alt="{{ $product->image->alt }}">
+--}}
             <h2 class="title is-4">{{ $product->title }}</h2>
             </a>
             <p>{{ $product->description }}</p>

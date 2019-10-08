@@ -30,11 +30,11 @@
         </div>
 
         <div class="field">
-            <label for="description" class="label">Color</label>
-            <div class="control">
-                <select name="color" class="text">
-                    @foreach($colors as $color)
-                    <option>{{ $color->name }}</option>
+            <label for="description" class="label">Category</label>
+            <div class="form-control">
+                <select name="category_id" class="text">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>

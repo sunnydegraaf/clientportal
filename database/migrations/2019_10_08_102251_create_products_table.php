@@ -22,20 +22,11 @@ class CreateProductsTable extends Migration
             $table->string('title', 255)->nullable();
             $table->decimal('price', 11, 0)->nullable();
             $table->text('description')->nullable();
-/*            $table->foreign('image_id')->references('id')->on('images');
-            $table->foreign('category_id')->references('id')->on('categories');*/
-
-
-
-/*            $table->foreign('image_id', 'image_id')->references('id')->on('images')->onDelete('NO ACTION
-')->onUpdate('NO ACTION');
-            $table->foreign('category_id', 'category_id')->references('id')->on('categories')->onDelete('NO ACTION
-')->onUpdate('NO ACTION');*/
-
+            $table->integer('category_id')->nullable()->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->integer('image_id')->nullable()->unsigned();
+            $table->foreign('image_id')->references('id')->on('images');
         });
-
-
-
     }
 
     /**

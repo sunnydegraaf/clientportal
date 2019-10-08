@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Color;
+use App\Category;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Project;
 use App\Product;
@@ -18,8 +18,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        $colors = Color::all();
-        return view('products.create', compact('products','colors'));
+        $categories = Category::all();
+        return view('products.create', compact('products', 'categories'));
     }
 
     public function store()
@@ -28,14 +28,13 @@ class ProductController extends Controller
         'title' => 'required',
         'price' => 'required',
         'description' => 'required',
+        'category_id' => 'required'
 
     ]);
 
-        Product::create($attributes);//->id
+        Product::create($attributes);
 
         return redirect('/products');
-        //$id = Product::create($attributes)->id;
-
     }
 
     public function show(Product $product)
@@ -45,13 +44,15 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
+
     }
 
     public function update(Product $product)
     {
 
-        $product->update(request(['title', 'price', 'description']));
+        $product->update(request(['title', 'price', 'description', 'category_id']));
 
         return redirect('/products');
     }

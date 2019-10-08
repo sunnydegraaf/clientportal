@@ -24,6 +24,17 @@
         </div>
 
         <div class="field">
+            <label for="description" class="label">Category</label>
+            <div class="form-control">
+                <select name="category_id" class="text">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" >{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
             <label for="description" class="label">Description</label>
             <div class="control">
                 <textarea name="description" class="textarea">{{ $product->description }}</textarea>

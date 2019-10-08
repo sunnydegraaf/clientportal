@@ -10,21 +10,15 @@ class Product extends Model
 
     protected $guarded = [];
 
-    public function colors()
+    public function category()
     {
-        return $this->belongsTo(Color::class);
+        return $this->belongsTo(Category::class);
 
     }
 
-    public function categories()
+    public function image()
     {
-        return $this->hasMany(Category::class);
-
-    }
-
-    public function images()
-    {
-        return $this->hasMany(Image::class);
+        return $this->belongsTo(Image::class);
 
     }
 }

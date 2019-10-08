@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
+    public $timestamps = false;
+
+    protected $guarded = [];
+
+    protected $table = 'categories';
+
+    public function product() {
+        return $this->hasMany(Product::class);
     }
 }
