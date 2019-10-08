@@ -29,7 +29,6 @@ class ProductController extends Controller
         'price' => 'required',
         'description' => 'required',
         'category_id' => 'required'
-
     ]);
 
         Product::create($attributes);
@@ -51,8 +50,12 @@ class ProductController extends Controller
 
     public function update(Product $product)
     {
-
-        $product->update(request(['title', 'price', 'description', 'category_id']));
+        $product->update(request()->validate([
+            'title' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'category_id' => 'required'
+        ]));
 
         return redirect('/products');
     }
