@@ -1,17 +1,20 @@
-<nav>
-    @if (Route::has('login'))
-        <nav class="top-right links">
+<nav class="navbar has-background-white" role="navigation">
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            @if (Route::has('login'))
             @auth
-                <a href="{{ url('/home') }}">Home</a>
+                <a class="navbar-item" href="{{ url('/home') }}">Home</a>
             @else
-                <a href="{{ route('login') }}">Login</a>
+                <a class="navbar-item" href="{{ route('login') }}">Login</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif
+                    <a class="navbar-item" href="{{ route('register') }}">Register</a>
+                    @endif
             @endauth
 
-            <a href="{{ url('/products') }}">Products</a>
-            <a href="{{ url('/categories') }}">Categories</a>
-        </nav>
+            <a class="navbar-item" href="{{ url('/products') }}">Products</a>
+            <a class="navbar-item" href="{{ url('/categories') }}">Categories</a>
+        </div>
+    </div>
+</nav>
 @endif

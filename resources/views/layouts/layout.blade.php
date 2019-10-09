@@ -8,13 +8,19 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
     <title>@yield('title')</title>
 </head>
-<body>
+<body class="has-background-light">
 
     @include('partials._nav')
 
-    <div class="container">
-        @yield('content')
+    <div class="hero">
+        <div class="hero-body">
+            <div class="container">
+                @yield('content')
+            </div>
+        </div>
     </div>
+
+    @include('partials._footer')
 
 </body>
 </html>
