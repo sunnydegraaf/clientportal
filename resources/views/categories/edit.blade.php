@@ -1,5 +1,7 @@
 @extends('/layouts/layout')
 
+@section('title', 'Edit category')
+
 @section('content')
     <h1 class="title">Edit category</h1>
 

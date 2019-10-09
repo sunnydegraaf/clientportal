@@ -1,5 +1,7 @@
 @extends('/layouts/layout')
 
+@section('title', 'Products')
+
 @section('content')
     <div class="field">
         <div class="control">

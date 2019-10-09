@@ -1,5 +1,7 @@
 @extends('/layouts/layout')
 
+@section('title', 'Categories')
+
 @section('content')
     <h1 class="title">Categories</h1>
 

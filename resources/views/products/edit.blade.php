@@ -1,7 +1,9 @@
 @extends('/layouts/layout')
 
+@section('title', 'Edit product')
+
 @section('content')
-    <h1 class="title">Edit project</h1>
+    <h1 class="title">Edit product</h1>
 
     <form method="post" action="/products/{{ $product->id }}">
         @method('PATCH')

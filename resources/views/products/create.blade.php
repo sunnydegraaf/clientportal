@@ -1,5 +1,7 @@
 @extends('/layouts/layout')
 
+@section('title', 'Create product')
+
 @section('content')
     <h1 class="title">Create project</h1>
 
