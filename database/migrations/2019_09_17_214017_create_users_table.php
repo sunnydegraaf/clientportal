@@ -26,7 +26,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->nullableTimestamps();
             $table->unsignedInteger('role_id')->nullable();
-
             $table->unique('email', 'users_email_unique');
 
             $table->foreign('role_id', 'role_id')->references('id')->on('roles')->onDelete('NO ACTION

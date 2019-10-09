@@ -45,7 +45,7 @@
         <div class="field">
             <label for="description" class="label">Image</label>
             <div class="control">
-                <input type="file" name="image">
+                <input type="file" name="image_id">
             </div>
         </div>
 

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
+use App\Image;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Project;
-use App\Product;
 
 class ProductController extends Controller
 {
@@ -28,8 +29,9 @@ class ProductController extends Controller
         'title' => 'required',
         'price' => 'required',
         'description' => 'required',
-        'category_id' => 'required'
-    ]);
+        'category_id' => 'required',
+        'image_id' => 'required'
+        ]);
 
         Product::create($attributes);
 

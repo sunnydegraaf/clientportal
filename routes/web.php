@@ -29,3 +29,7 @@ Route::resource('categories', 'CategoryController');
 
 Route::get('/images', 'ImageController@index');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
