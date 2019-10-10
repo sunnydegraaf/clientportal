@@ -3,7 +3,7 @@
 @section('title', 'Create product')
 
 @section('content')
-    <h1 class="title">Create project</h1>
+    <h1 class="title">Create product</h1>
 
     <form method="post" action="/products" enctype="multipart/form-data">
         @csrf
