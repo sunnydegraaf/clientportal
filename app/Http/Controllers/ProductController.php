@@ -10,6 +10,12 @@ use phpDocumentor\Reflection\Project;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
         $products = Product::all();

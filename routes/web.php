@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/test', 'HomeController@test');
+
 Route::resource('user', 'UserController');
 
 Route::resource('products', 'ProductController');
