@@ -32,11 +32,17 @@
             @if (Route::has('login'))
             @auth
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="{{ url('/profile') }}">Profile</a>
+                <a class="navbar-link" href="{{ url('/user') }}">Profile</a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item" href="{{ url('/profile/edit') }}">Settings</a>
-                    <a class="navbar-item" href="">Logout</a>
+                    <a class="navbar-item" href="/user/{{ Auth::user()->id }}/edit">Settings</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                  document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </div>
             @else

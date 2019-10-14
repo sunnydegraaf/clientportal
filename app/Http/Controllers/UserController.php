@@ -5,14 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Image;
+use App\User;
 
 class UserController extends Controller
 {
     public function index() {
-        return view('profile.index', array('user' => Auth::user()));
+        return view('user.index', array('user' => Auth::user()));
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|max:100',
+            'email' => 'required|max:5000',
+            'avatar' => 'image|mimes:jpeg,png|between:0,1024'
+        ]);
 
         if($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
@@ -21,19 +29,31 @@ class UserController extends Controller
 
             $user = Auth::user();
             $user->avatar = $filename;
-            $user->save();
+            $user->name = $request['name'];
+            $user->email = $request['email'];
 
+            $user->update();
+        } else {
+            $user = Auth::user();
+
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+
+            $user->update();
         }
 
-        return redirect('/profile');
-
+        return redirect('/user');
     }
 
     public function show(){
 
     }
 
+    public function store(){
+
+    }
+
     public function edit() {
-        return view('profile.edit', array('user' => Auth::user()));
+        return view('user.edit', array('user' => Auth::user()));
     }
 }
