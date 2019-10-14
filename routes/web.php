@@ -23,8 +23,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('profile', 'UserController@profile');
-Route::post('profile', 'UserController@update_avatar');
+Route::resource('profile', 'UserController');
 
 Route::resource('products', 'ProductController');
 
@@ -32,4 +31,3 @@ Route::resource('categories', 'CategoryController');
 
 Route::get('/images', 'ImageController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');

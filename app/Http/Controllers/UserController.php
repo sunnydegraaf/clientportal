@@ -8,11 +8,11 @@ use Image;
 
 class UserController extends Controller
 {
-    public function profile() {
-        return view('profile', array('user' => Auth::user()));
+    public function index() {
+        return view('profile.index', array('user' => Auth::user()));
     }
 
-    public function update_avatar(Request $request) {
+    public function update(Request $request) {
 
         if($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
@@ -25,7 +25,15 @@ class UserController extends Controller
 
         }
 
-        return view('profile', array('user' => Auth::user()));
+        return redirect('/profile');
 
+    }
+
+    public function show(){
+
+    }
+
+    public function edit() {
+        return view('profile.edit', array('user' => Auth::user()));
     }
 }

@@ -2,9 +2,43 @@
     <div class="navbar-menu">
         <div class="navbar-start">
 
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="{{ url('/products') }}">Products</a>
+                @if (Route::has('login'))
+                    @auth
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{{ url('/products/create') }}">Create</a>
+                    </div>
+                    @endauth
+                @endif
+            </div>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="{{ url('/categories') }}">Categories</a>
+                    @if (Route::has('login'))
+                        @auth
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="{{ url('/categories/create') }}">Create</a>
+                        </div>
+                        @endauth
+                    @endif
+                </div>
+
+        </div>
+
+
+    </div>
             @if (Route::has('login'))
             @auth
-                <a class="navbar-item" href="{{ url('/') }}">Home</a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="{{ url('/profile') }}">Profile</a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{{ url('/profile/edit') }}">Settings</a>
+                    <a class="navbar-item" href="">Logout</a>
+                </div>
+            </div>
             @else
                 <a class="navbar-item" href="{{ route('login') }}">Login</a>
 
@@ -12,33 +46,5 @@
                     <a class="navbar-item" href="{{ route('register') }}">Register</a>
                     @endif
             @endauth
-
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="{{ url('/products') }}">Products</a>
-
-                <div class="navbar-dropdown">
-                    <a class="navbar-item" href="{{ url('/products/create') }}">Create</a>
-                </div>
-            </div>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" href="{{ url('/categories') }}">Categories</a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{{ url('/categories/create') }}">Create</a>
-                    </div>
-                </div>
-
-        </div>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" href="{{ url('/profile') }}">Profile</a>
-
-            <div class="navbar-dropdown">
-                <a class="navbar-item" href="{{ url('/profile') }}">Settings</a>
-                <a class="navbar-item" href="">Logout</a>
-            </div>
-        </div>
-    </div>
+            @endif
 </nav>
-@endif
