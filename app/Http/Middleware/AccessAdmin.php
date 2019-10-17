@@ -6,6 +6,7 @@ use Closure;
 use Auth;
 
 class AccessAdmin
+
 {
     /**
      * Handle an incoming request.
@@ -20,6 +21,6 @@ class AccessAdmin
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect('user');
     }
 }

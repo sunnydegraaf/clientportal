@@ -16,6 +16,7 @@
             <p>{{ $product->description }}</p>
             <p>&euro;{{ $product->price }},-</p>
 
+            @if (Route::has('login'))
             <div class="level">
             <form action="/products/{{$product->id}}/edit">
                 <div class="control">
@@ -31,6 +32,7 @@
                 </div>
             </form>
             </div>
+            @endif
 
         </div>
     @endforeach

@@ -7,10 +7,18 @@ use Auth;
 use Image;
 use App\User;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth.admin');
+    }
+
     public function index() {
-        return view('user.index', array('user' => Auth::user()));
+        $users = User::all();
+
+        return view('users.index', compact('users'));
     }
 
     public function create()

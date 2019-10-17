@@ -2,7 +2,6 @@
     <div class="navbar-menu">
         <div class="navbar-start">
 
-
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/products') }}">Products</a>
                 @if (Route::has('login'))
@@ -14,16 +13,25 @@
                 @endif
             </div>
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" href="{{ url('/categories') }}">Categories</a>
-                    @if (Route::has('login'))
-                        @auth
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item" href="{{ url('/categories/create') }}">Create</a>
-                        </div>
-                        @endauth
-                    @endif
-                </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="{{ url('/categories') }}">Categories</a>
+                @if (Route::has('login'))
+                    @auth
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{{ url('/categories/create') }}">Create</a>
+                    </div>
+                    @endauth
+                @endif
+            </div>
+
+                @if (Route::has('login'))
+                    @auth
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="{{ url('/users') }}">Users</a>
+                    </div>
+                    @endauth
+                @endif
+        </div>
 
         </div>
 

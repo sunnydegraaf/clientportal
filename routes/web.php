@@ -27,6 +27,8 @@ Route::get('/test', 'HomeController@test')->middleware('auth.admin');
 
 Route::resource('user', 'UserController');
 
+Route::resource('users', 'UsersController');
+
 Route::resource('products', 'ProductController');
 
 Route::resource('categories', 'CategoryController');
