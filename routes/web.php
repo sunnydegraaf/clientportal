@@ -23,7 +23,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', 'HomeController@test')->middleware('auth.admin');
+Route::get('/test', 'HomeController@test')->middleware('admin');
+
+Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 
 Route::resource('user', 'UserController');
 
