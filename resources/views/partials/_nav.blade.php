@@ -25,7 +25,7 @@
             </div>
 
                 @if (Route::has('login'))
-                    @auth
+                    @auth('admin')
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link" href="{{ url('/users') }}">Users</a>
                     </div>
