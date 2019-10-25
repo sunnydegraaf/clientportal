@@ -2,6 +2,6 @@
 
 @section('content')
 
-<h1 class="title">Hello {{ $user->first()->name }}</h1>
+<h1 class="title">Hello</h1>
 
 @endsection

@@ -13,9 +13,9 @@
 
 Route::get('/', function () {
 
-        $user = DB::table('users')->get();
+        //$user = DB::table('users')->get();
 
-        return view('welcome', compact('user'));
+        return view('welcome');
 
 });
 
@@ -23,10 +23,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', 'HomeController@test')->middleware('admin');
+Route::prefix('admin')->group(function(){
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/', 'AdminController@index')->name('admin.admin');
+});
 
-Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 
 Route::resource('user', 'UserController');
 

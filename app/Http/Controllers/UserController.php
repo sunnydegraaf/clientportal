@@ -47,7 +47,7 @@ class UserController extends Controller
             $user->update();
         }
 
-        return redirect('/user');
+        return redirect('admin.dashboard');
     }
 
     public function show(){

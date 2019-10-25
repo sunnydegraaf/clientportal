@@ -21,6 +21,6 @@ class AccessAdmin
             return $next($request);
         }
 
-        return redirect('user');
+        return redirect('/');
     }
 }
