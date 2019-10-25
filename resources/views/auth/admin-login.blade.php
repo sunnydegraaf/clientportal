@@ -4,8 +4,7 @@
 
 @section('content')
     <h1 class="title">Admin login</h1>
-
-    <form class="box" method="POST" action="{{ route('login') }}">
+    <form class="box" method="POST" action="{{ route('admin.login.submit') }}">
         @csrf
 
         <div class="field">

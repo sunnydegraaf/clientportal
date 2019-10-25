@@ -4,8 +4,6 @@
 
 @section('content')
     <h1 class="title">User login</h1>
-    <div class="box">
-
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -54,5 +52,4 @@
             </div>
         @endif
     </form>
-</div>
 @endsection
