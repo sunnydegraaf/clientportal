@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class RedirectIfAuthenticated
 {
@@ -23,7 +24,7 @@ class RedirectIfAuthenticated
                 return redirect()->route('admin.admin');
             } else {
                 //default guard.
-                return redirect()->route('home');
+                return redirect()->route('/');
             }
         }
         return $next($request);

@@ -1,4 +1,10 @@
 <nav class="navbar has-background-white" role="navigation">
+    <div class="navbar-brand" style="background-color: #3273dc">
+        <a class="navbar-item" href="/">
+            <img style="size: 50px 50px" src="/images/sweat.png">
+        </a>
+    </div>
+
     <div class="navbar-menu">
         <div class="navbar-start">
 
