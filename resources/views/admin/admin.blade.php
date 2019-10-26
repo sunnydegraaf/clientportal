@@ -1,4 +1,4 @@
-@extends('/layouts/layout')
+@extends('/layouts/admin')
 
 @section('title', 'Admin dashboard')
 
@@ -10,7 +10,7 @@
                     <div class="card-header">Admin dashboard</div>
 
                     <div class="card-body">
-                        <h1>Admin dashboard</h1>
+
                     </div>
                 </div>
             </div>

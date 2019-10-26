@@ -47,15 +47,7 @@ class UserController extends Controller
             $user->update();
         }
 
-        return redirect('admin.dashboard');
-    }
-
-    public function show(){
-
-    }
-
-    public function store(){
-
+        return redirect('user');
     }
 
     public function edit() {

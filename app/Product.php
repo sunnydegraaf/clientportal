@@ -13,12 +13,14 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
 
+    public function hasAnyCategory($category) {
+        return null !== $this->category()->where('category_id', $category)->first();
     }
 
     public function image()
     {
         return $this->belongsTo(Image::class);
-
     }
 }

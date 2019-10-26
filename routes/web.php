@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/', 'AdminController@index')->name('admin.admin');
+    Route::get('/', 'AdminController@index')->name('admin.admin')->middleware('auth:admin');
 });
 
 Route::group(['middleware' => 'auth'], function() {
@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth.storemanager'], function() {
 
 Route::get('/status/update', 'UsersController@updateStatus')->name('users.update.status');
 
-Route::resource('users', 'UsersController');
+Route::resource('users', 'UsersController')->middleware('auth:admin');;
 
 //Route::get('/images', 'ImageController@index');
 

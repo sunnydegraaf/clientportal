@@ -22,8 +22,8 @@
 
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/categories') }}">Categories</a>
-                <div class="navbar-dropdown">
                 @if(Auth::user()->hasAnyRole('storemanager'))
+                <div class="navbar-dropdown">
                     <a class="navbar-item" href="{{ url('/categories/create') }}">Create</a>
                 @endif
                 </div>
