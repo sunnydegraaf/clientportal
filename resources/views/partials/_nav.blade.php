@@ -7,59 +7,59 @@
 
     <div class="navbar-menu">
         <div class="navbar-start">
-
-            @if (Route::has('login'))
-                @auth
+            @if (Auth::user())
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/products') }}">Products</a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{{ url('/products/create') }}">Create</a>
-                    </div>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{{ url('/products/bikes') }}">Category #1</a>
+                    <a class="navbar-item" href="{{ url('/products/boats') }}">Category #2</a>
+                    @if(Auth::user()->hasAnyRole('storemanager'))
+                    <a class="navbar-item" href="{{ url('/products/create') }}">Create</a>
+                    @endif
                 </div>
+            </div>
 
 
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/categories') }}">Categories</a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{{ url('/categories/create') }}">Create</a>
-                    </div>
-            </div>
-
-                    @auth('admin')
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link" href="{{ url('/users') }}">Users</a>
-                    </div>
-                    @endauth
-        </div>
-        @endauth
-        @endif
-
-        </div>
-
-
-    </div>
-            @if (Route::has('login'))
-            @auth
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="{{ url('/user') }}">Profile</a>
-
                 <div class="navbar-dropdown">
-                    <a class="navbar-item" href="/user/{{ Auth::user()->id }}/edit">Settings</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+                @if(Auth::user()->hasAnyRole('storemanager'))
+                    <a class="navbar-item" href="{{ url('/categories/create') }}">Create</a>
+                @endif
                 </div>
             </div>
-            @else
-                <a class="navbar-item" href="{{ route('login') }}">Login</a>
 
-                @if (Route::has('register'))
-                    <a class="navbar-item" href="{{ route('register') }}">Register</a>
-                    @endif
+            @auth('admin')
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="{{ url('/users') }}">Users</a>
+            </div>
             @endauth
-            @endif
+        </div>
+        @endif
+    </div>
+
+        @if (Route::has('login'))
+        @auth
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="{{ url('/user') }}">Profile</a>
+
+            <div class="navbar-dropdown">
+                <a class="navbar-item" href="/user/{{ Auth::user()->id }}/edit">Settings</a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </div>
+        @else
+            <a class="navbar-item" href="{{ route('login') }}">Login</a>
+
+            @if (Route::has('register'))
+                <a class="navbar-item" href="{{ route('register') }}">Register</a>
+                @endif
+        @endauth
+        @endif
 </nav>

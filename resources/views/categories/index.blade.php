@@ -10,6 +10,7 @@
             <h2 class="title is-4">{{ $category->name }}</h2>
             <p>{{ $category->description }}</p>
 
+            @if (Route::has('login') && Auth::user()->hasAnyRole('storemanager'))
             <div class="level">
                 <form action="/categories/{{ $category->id }}/edit">
                     <div class="control">
@@ -25,7 +26,7 @@
                     </div>
                 </form>
             </div>
-
+            @endif
         </div>
     @endforeach
 @endsection

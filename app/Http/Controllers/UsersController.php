@@ -77,4 +77,13 @@ class UsersController extends Controller
 
         return redirect('/users');
     }
+
+    public function updateStatus(Request $request)
+    {
+        $user = User::findOrFail($request->user_id);
+        $user->status = $request->status;
+        $user->save();
+
+        return response()->json(['message' => 'User status updated successfully.']);
+    }
 }

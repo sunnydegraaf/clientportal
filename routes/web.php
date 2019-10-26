@@ -29,14 +29,20 @@ Route::prefix('admin')->group(function(){
     Route::get('/', 'AdminController@index')->name('admin.admin');
 });
 
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('products', 'ProductController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('user', 'UserController');
+});
 
-Route::resource('user', 'UserController');
+Route::group(['middleware' => 'auth.storemanager'], function() {
+    Route::resource('products', 'ProductController')->except('show', 'index');
+    Route::resource('categories', 'CategoryController')->except('show', 'index');
+});
+
+Route::get('/status/update', 'UsersController@updateStatus')->name('users.update.status');
 
 Route::resource('users', 'UsersController');
 
-Route::resource('products', 'ProductController');
-
-Route::resource('categories', 'CategoryController');
-
-Route::get('/images', 'ImageController@index');
+//Route::get('/images', 'ImageController@index');
 
