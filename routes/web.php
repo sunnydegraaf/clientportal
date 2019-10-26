@@ -40,9 +40,8 @@ Route::group(['middleware' => 'auth.storemanager'], function() {
     Route::resource('categories', 'CategoryController')->except('show', 'index');
 });
 
+Route::get('/users', 'UsersController@index');
 Route::get('/status/update', 'UsersController@updateStatus')->name('users.update.status');
-
-Route::resource('users', 'UsersController')->middleware('auth:admin');;
 
 //Route::get('/images', 'ImageController@index');
 

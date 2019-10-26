@@ -50,6 +50,10 @@ class UserController extends Controller
         return redirect('user');
     }
 
+    public function show() {
+
+    }
+
     public function edit() {
         return view('user.edit', array('user' => Auth::user()));
     }
