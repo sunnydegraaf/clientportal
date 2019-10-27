@@ -31,6 +31,7 @@ Route::prefix('admin')->group(function(){
 
 Route::prefix('categories')->group(function() {
     Route::get('/boats', 'ProductController@boats')->name('categories.boats');
+    Route::get('/boats2', 'CategoryController@boats')->name('categories.boats2');
 });
 
 Route::group(['middleware' => 'auth'], function() {
@@ -45,6 +46,7 @@ Route::group(['middleware' => 'auth.storemanager'], function() {
 });
 
 //Route::get('/boats', 'CategoryController@boats');
+Route::post('/search', 'SearchController@search');
 
 Route::get('/users', 'UsersController@index');
 Route::get('/status/update', 'UsersController@updateStatus')->name('users.update.status');

@@ -29,6 +29,14 @@
                 </div>
             </div>
 
+            <div>
+                <form action="/search" method="post" role="search">
+                    @csrf
+                    <input type="text" name="search">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
             @auth('admin')
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/users') }}">Users</a>

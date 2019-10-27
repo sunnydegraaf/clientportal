@@ -7,7 +7,7 @@
 
     @foreach ($boats as $boat)
         <div class="box">
-            {{dd($boat)}}
+            Yo
         </div>
     @endforeach
 @endsection

@@ -19,12 +19,6 @@ class CategoryController extends Controller
         return view('categories.index', compact('categories'));
     }
 
-    public function boats()
-    {
-        $boats = Category::find(1);
-        return view('categories.boats', compact('boats'));
-    }
-
     public function create()
     {
         return view('categories.create', compact( 'categories'));
@@ -67,5 +61,11 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect('/categories');
+    }
+
+    public function boats()
+    {
+        $boats = Category::where('category_id', '1')->get();
+        return view('categories.boats2', compact('boats'));
     }
 }
