@@ -19,6 +19,12 @@ class CategoryController extends Controller
         return view('categories.index', compact('categories'));
     }
 
+    public function boats()
+    {
+        $boats = Category::find(1);
+        return view('categories.boats', compact('boats'));
+    }
+
     public function create()
     {
         return view('categories.create', compact( 'categories'));

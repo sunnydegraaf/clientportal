@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use Illuminate\Support\Facades\DB;
 use App\Image;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Project;
@@ -73,5 +74,11 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect('/products');
+    }
+
+    public function boats()
+    {
+        $boats = Product::where('category_id', '1')->get();
+        return view('products.boats', compact('boats'));
     }
 }
