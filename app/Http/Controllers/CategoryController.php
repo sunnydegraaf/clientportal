@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -38,7 +39,8 @@ class CategoryController extends Controller
 
     public function show($id)
     {
-        //
+        $products = Product::where('category_id', $id)->get();
+        return view('categories.show', compact('products'));
     }
 
     public function edit(Category $category)
@@ -61,11 +63,5 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect('/categories');
-    }
-
-    public function boats()
-    {
-        $boats = Category::where('category_id', '1')->get();
-        return view('categories.boats2', compact('boats'));
     }
 }

@@ -12,7 +12,7 @@
                 <a class="navbar-link" href="{{ url('/products') }}">Products</a>
                 <div class="navbar-dropdown">
                         @foreach($categories as $category)
-                            <a class="navbar-item" href="/">{{ $category->name }}</a>
+                            <a class="navbar-item" href="/categories/{{$category->id}}">{{ $category->name }}</a>
                         @endforeach
                     @if(Auth::user()->hasAnyRole('storemanager'))
                     <a class="navbar-item" href="{{ url('/products/create') }}">Create</a>

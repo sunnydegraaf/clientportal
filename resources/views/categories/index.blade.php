@@ -7,7 +7,9 @@
 
     @foreach ($categories as $category)
         <div class="box">
-            <h2 class="title is-4">{{ $category->name }}</h2>
+            <a href="/categories/{{ $category->id }}">
+                <h2 class="title is-4">{{ $category->name }}</h2>
+            </a>
             <p>{{ $category->description }}</p>
 
             @if (Route::has('login') && Auth::user()->hasAnyRole('storemanager'))

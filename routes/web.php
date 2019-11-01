@@ -30,8 +30,7 @@ Route::prefix('admin')->group(function(){
 });
 
 Route::prefix('categories')->group(function() {
-    Route::get('/boats', 'ProductController@boats')->name('categories.boats');
-    Route::get('/boats2', 'CategoryController@boats')->name('categories.boats2');
+    Route::get('/{id}', 'CategoryController@show')->name('categories.show');
 });
 
 Route::group(['middleware' => 'auth', 'auth.status'], function() {
