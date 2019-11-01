@@ -29,7 +29,6 @@
             </div>
             @endif
 
-
             @auth('admin')
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/users') }}">Users</a>
@@ -37,13 +36,12 @@
             @endauth
         </div>
         @endif
-    </div>
 
     @if (Route::has('login'))
     @auth
-    <div class="field has-addons is-expanded">
-        <div class="control">
-            <form class="is-fullwidth" style="display: inline-flex" action="/search" method="post" role="search">
+    <div class="field has-addons" style="width: 100%; margin: auto !important">
+        <div class="control" style="width: 100%">
+            <form style="width: inherit; display: inline-flex" action="/search" method="post" role="search">
                 @csrf
                 <input class="input" type="text" name="search" placeholder="Zoek naar een product">
                 <div class="control">
@@ -75,4 +73,5 @@
             @endif
     @endauth
     @endif
+    </div>
 </nav>
