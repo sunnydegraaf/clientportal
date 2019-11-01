@@ -29,10 +29,6 @@ Route::prefix('admin')->group(function(){
     Route::get('/', 'AdminController@index')->name('admin.admin')->middleware('auth:admin');
 });
 
-Route::prefix('categories')->group(function() {
-    Route::get('/{id}', 'CategoryController@show')->name('categories.show');
-});
-
 Route::group(['middleware' => 'auth', 'auth.status'], function() {
     Route::resource('products', 'ProductController');
     Route::resource('categories', 'CategoryController');
@@ -44,11 +40,7 @@ Route::group(['middleware' => 'auth.storemanager'], function() {
     Route::resource('categories', 'CategoryController')->except('show', 'index');
 });
 
-//Route::get('/boats', 'CategoryController@boats');
 Route::post('/search', 'SearchController@search');
 
 Route::get('/users', 'UsersController@index');
 Route::get('/status/update', 'UsersController@updateStatus')->name('users.update.status');
-
-//Route::get('/images', 'ImageController@index');
-
