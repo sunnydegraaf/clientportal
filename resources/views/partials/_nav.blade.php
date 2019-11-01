@@ -29,14 +29,6 @@
                 </div>
             </div>
 
-            <div>
-                <form action="/search" method="post" role="search">
-                    @csrf
-                    <input type="text" name="search">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-
             @auth('admin')
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/users') }}">Users</a>
@@ -46,28 +38,40 @@
         @endif
     </div>
 
-        @if (Route::has('login'))
-        @auth
-        <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" href="{{ url('/user') }}">Profile</a>
-
-            <div class="navbar-dropdown">
-                <a class="navbar-item" href="/user/{{ Auth::user()->id }}/edit">Settings</a>
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                              document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </div>
+    @if (Route::has('login'))
+    @auth
+    <div class="field has-addons is-expanded">
+        <div class="control">
+            <form class="is-fullwidth" style="display: inline-flex" action="/search" method="post" role="search">
+                @csrf
+                <input class="input" type="text" name="search" placeholder="Zoek naar een product">
+                <div class="control">
+                    <button class="button is-link" type="submit">Search</button>
+                </div>
+            </form>
         </div>
-        @else
-            <a class="navbar-item" href="{{ route('login') }}">Login</a>
+    </div>
 
-            @if (Route::has('register'))
-                <a class="navbar-item" href="{{ route('register') }}">Register</a>
-                @endif
-        @endauth
-        @endif
+    <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="{{ url('/user') }}">Profile</a>
+
+        <div class="navbar-dropdown">
+            <a class="navbar-item" href="/user/{{ Auth::user()->id }}/edit">Settings</a>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
+    </div>
+    @else
+        <a class="navbar-item" href="{{ route('login') }}">Login</a>
+
+        @if (Route::has('register'))
+            <a class="navbar-item" href="{{ route('register') }}">Register</a>
+            @endif
+    @endauth
+    @endif
 </nav>

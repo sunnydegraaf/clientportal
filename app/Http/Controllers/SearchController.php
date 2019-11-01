@@ -14,9 +14,9 @@ class SearchController extends Controller
         $products = Product::where('title', 'LIKE', '%' . $search . '%')->get();
 
         if (count($products) > 0) {
-            return view('search.index', compact('products'))->withDetails($products)->withQuery($search);
+            return view('search.index', compact('products'));
             } else {
-            return view('search.index', compact('products'))->withMessage('No Details found. Try to search again !');
+            return view('search.index', compact('products'));
         }
     }
 }

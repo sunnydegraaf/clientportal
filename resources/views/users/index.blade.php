@@ -39,7 +39,9 @@
             </table>
         </div>
 
-<script>let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+<script>
+
+    let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
     elems.forEach(function(html) {
         let switchery = new Switchery(html,  { size: 'small' });
@@ -53,10 +55,7 @@
                 type: "GET",
                 dataType: "json",
                 url: '{{ route('users.update.status') }}',
-                data: {'status': status, 'user_id': userId},
-                success: function (data) {
-                    console.log(data.message);
-                }
+                data: {'status': status, 'user_id': userId}
             });
         });
     });

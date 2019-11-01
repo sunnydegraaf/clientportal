@@ -34,7 +34,7 @@ Route::prefix('categories')->group(function() {
     Route::get('/boats2', 'CategoryController@boats')->name('categories.boats2');
 });
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth', 'auth.status'], function() {
     Route::resource('products', 'ProductController');
     Route::resource('categories', 'CategoryController');
     Route::resource('user', 'UserController');
