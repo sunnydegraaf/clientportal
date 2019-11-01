@@ -11,23 +11,24 @@
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/products') }}">Products</a>
                 <div class="navbar-dropdown">
-                    <a class="navbar-item" href="{{ url('/products/bikes') }}">Category #1</a>
-                    <a class="navbar-item" href="{{ url('/products/boats') }}">Category #2</a>
+                        @foreach($categories as $category)
+                            <a class="navbar-item" href="/">{{ $category->name }}</a>
+                        @endforeach
                     @if(Auth::user()->hasAnyRole('storemanager'))
                     <a class="navbar-item" href="{{ url('/products/create') }}">Create</a>
                     @endif
                 </div>
             </div>
 
-
+            @if(Auth::user()->hasAnyRole('storemanager'))
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/categories') }}">Categories</a>
-                @if(Auth::user()->hasAnyRole('storemanager'))
                 <div class="navbar-dropdown">
                     <a class="navbar-item" href="{{ url('/categories/create') }}">Create</a>
-                @endif
                 </div>
             </div>
+            @endif
+
 
             @auth('admin')
             <div class="navbar-item has-dropdown is-hoverable">
