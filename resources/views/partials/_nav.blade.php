@@ -32,7 +32,7 @@
 
             @auth('admin')
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="{{ url('/users') }}">Users</a>
+                <a class="navbar-link" href="{{ url('/admin/users') }}">Users</a>
             </div>
             @endauth
         </div>

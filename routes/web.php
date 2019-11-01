@@ -27,6 +27,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.admin')->middleware('auth:admin');
+    Route::get('/users', 'AdminController@showAllUsers')->name('admin.users');
 });
 
 Route::group(['middleware' => 'auth', 'auth.status'], function() {
@@ -42,5 +43,4 @@ Route::group(['middleware' => 'auth.storemanager'], function() {
 
 Route::post('/search', 'SearchController@search');
 
-Route::get('/users', 'UsersController@index');
 Route::get('/status/update', 'UsersController@updateStatus')->name('users.update.status');

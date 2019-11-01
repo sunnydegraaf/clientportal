@@ -63,4 +63,10 @@ class UserController extends Controller
 
         return redirect('/users');
     }
+
+    public function showAllUsers()
+    {
+        $users = User::all();
+        return view('user.all', compact('users'));
+    }
 }

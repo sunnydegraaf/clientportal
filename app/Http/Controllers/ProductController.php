@@ -36,8 +36,8 @@ class ProductController extends Controller
         'title' => 'required',
         'price' => 'required',
         'description' => 'required',
-        'category_id' => 'required',
-        'image_id' => 'required'
+        'category_id' => 'required'
+/*        'image_id' => 'required'*/
         ]);
 
         Product::create($attributes);
