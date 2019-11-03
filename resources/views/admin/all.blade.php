@@ -1,4 +1,4 @@
-@extends('/layouts/layout')
+@extends('/layouts/admin')
 
 @section('title', 'Users')
 
@@ -54,7 +54,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "json",
-                    url: '{{ route('users.update.status') }}',
+                    url: '{{ route('admin.update.status') }}',
                     data: {'status': status, 'user_id': userId}
                 });
             });

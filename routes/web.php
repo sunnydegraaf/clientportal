@@ -30,6 +30,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/users', 'AdminController@showAllUsers')->name('admin.users');
 });
 
+Route::get('/status/update', 'AdminController@updateStatus')->name('admin.update.status');
+
 Route::group(['middleware' => 'auth', 'auth.status'], function() {
     Route::resource('products', 'ProductController');
     Route::resource('categories', 'CategoryController');
@@ -42,5 +44,3 @@ Route::group(['middleware' => 'auth.storemanager'], function() {
 });
 
 Route::post('/search', 'SearchController@search');
-
-Route::get('/status/update', 'UsersController@updateStatus')->name('users.update.status');

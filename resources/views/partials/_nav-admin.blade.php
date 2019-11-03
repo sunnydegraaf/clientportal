@@ -7,20 +7,19 @@
 
     <div class="navbar-menu">
         <div class="navbar-start">
-                @auth('admin')
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link" href="{{ url('/users') }}">Users</a>
-                    </div>
-                @endauth
+            @auth('admin')
+                <a class="navbar-item" href="{{ url('/admin') }}">Dashboard</a>
+                <a class="navbar-item" href="{{ url('/admin/users') }}">Users</a>
+            @endauth
         </div>
+    </div>
 
     @if (Route::has('login'))
         @auth
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="{{ url('/user') }}">Profile</a>
+                <a class="navbar-link">Profile</a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item" href="/user/{{ Auth::user()->id }}/edit">Settings</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>

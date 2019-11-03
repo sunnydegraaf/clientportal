@@ -30,14 +30,13 @@ class ProductController extends Controller
         return view('products.create', compact('products', 'categories'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $attributes = request()->validate([
-        'title' => 'required',
-        'price' => 'required',
-        'description' => 'required',
-        'category_id' => 'required'
-/*        'image_id' => 'required'*/
+        $attributes = $request->validate([
+        'title' => ['required', 'string', 'unique:products,title', 'max:255'],
+        'price' => ['required', 'numeric'],
+        'description' => ['required', 'string'],
+        'category_id' => ['required', 'numeric']
         ]);
 
         Product::create($attributes);
@@ -59,6 +58,8 @@ class ProductController extends Controller
 
     public function update(Product $product)
     {
+        dd($product);
+
         $product->update(request()->validate([
             'title' => 'required',
             'price' => 'required',
