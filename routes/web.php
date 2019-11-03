@@ -27,10 +27,10 @@ Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.admin')->middleware('auth:admin');
-    Route::get('/users', 'AdminController@showAllUsers')->name('admin.users');
+    Route::get('/users', 'AdminController@showAllUsers');
 });
 
-Route::get('/status/update', 'AdminController@updateStatus')->name('admin.update.status');
+    Route::get('users/status/update', 'AdminController@updateStatus')->name('admin.users.update.status');
 
 Route::group(['middleware' => 'auth', 'auth.status'], function() {
     Route::resource('products', 'ProductController');

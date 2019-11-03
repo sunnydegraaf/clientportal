@@ -29,13 +29,4 @@
                 <p>{{ $product->category->name }}</p>
         </div>
     </div>
-
-    <div class="field">
-        <div class="control">
-            <label class="label">Image</label>
-{{--
-                <img src="{{ $product->image->src }}" alt="{{ $product->image->alt }}">
---}}
-        </div>
-    </div>
 @endsection

@@ -43,13 +43,6 @@
         </div>
 
         <div class="field">
-            <label for="description" class="label">Image</label>
-            <div class="control">
-                <input type="file" name="image_id">
-            </div>
-        </div>
-
-        <div class="field">
             <div class="control">
                 <button type="submit" class="button is-link">Submit</button>
             </div>

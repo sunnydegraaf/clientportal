@@ -58,8 +58,6 @@ class ProductController extends Controller
 
     public function update(Product $product)
     {
-        dd($product);
-
         $product->update(request()->validate([
             'title' => 'required',
             'price' => 'required',

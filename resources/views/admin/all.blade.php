@@ -54,7 +54,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "json",
-                    url: '{{ route('admin.update.status') }}',
+                    url: '{{ route('admin.users.update.status') }}',
                     data: {'status': status, 'user_id': userId}
                 });
             });
