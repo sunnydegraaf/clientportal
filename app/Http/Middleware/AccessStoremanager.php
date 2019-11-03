@@ -21,6 +21,6 @@ class AccessStoremanager
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect('unauthorized');
     }
 }

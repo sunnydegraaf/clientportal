@@ -40,7 +40,8 @@ Route::group(['middleware' => 'auth', 'auth.status'], function() {
 
 Route::group(['middleware' => 'auth.storemanager'], function() {
     Route::resource('products', 'ProductController')->except('show', 'index');
-    Route::resource('categories', 'CategoryController')->except('show', 'index');
+    Route::resource('categories', 'CategoryController');
 });
 
 Route::post('/search', 'SearchController@search');
+Route::get('/unauthorized', 'ErrorController@unauthorized');
