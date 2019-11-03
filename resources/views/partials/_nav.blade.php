@@ -11,8 +11,8 @@
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="{{ url('/products') }}">Products</a>
                 <div class="navbar-dropdown">
-                    @foreach($categories as $category)
-                        <a class="navbar-item" href="/categories/{{$category->id}}">{{ $category->name }}</a>
+                    @foreach($products as $product)
+                        <a class="navbar-item" href="/categories/{{$product->id}}">{{ $product->name }}</a>
                     @endforeach
                     @if(Auth::user()->hasAnyRole('storemanager'))
                         <hr class="navbar-divider">
